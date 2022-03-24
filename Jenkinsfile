@@ -11,7 +11,7 @@ pipeline {
            steps{
                nodejs(nodeJSInstallationName: 'Node14') {
                     sh 'npm install'
-                    sh 'npm build'
+                    sh 'npm run build'
                 }
               
  }
