@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
      parameters{
@@ -27,8 +26,25 @@ pipeline {
               }
          }
      }
+     
+   stage('docker push'){
+            
+            steps{
+                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-credentials-cred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                 script{
+                     sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 557454388896.dkr.ecr.ap-south-1.amazonaws.com'
+                     sh 'docker tag reactapp/myapi-app-1.0:latest 557454388896.dkr.ecr.ap-south-1.amazonaws.com/first_ecr_terra:latest'
+                     sh 'docker push 557454388896.dkr.ecr.ap-south-1.amazonaws.com/first_ecr_terra:latest'
+                 }
+                 
+                }
+              }
+   }
+              
+
+              
+              
               
 }
 
 }
-    
