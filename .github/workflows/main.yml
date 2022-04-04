@@ -24,6 +24,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm i
+    - run: npm build
     - name: configure aws credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
