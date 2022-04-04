@@ -77,7 +77,7 @@ function App() {
         }}
       >
         <h1 className="text-6xl mb-two bold" style={{ paddingBottom: "20px" }}>
-          Generate
+          Create
         </h1>
         <p className="mb-one text-lg">
           Free to use online REST API for testing and prototyping
